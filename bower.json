@@ -1,0 +1,21 @@
+{
+  "name": "template",
+  "version": "0.0.0",
+  "authors": [
+    "Mădălin-Cristian COLEZEA <madalin_cristian.colezea@cti.pub.ro>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/main/resources/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.1",
+    "bootstrap": "~3.3.5",
+    "angular-route": "~1.4.1"
+  }
+}
