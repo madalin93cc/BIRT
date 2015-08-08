@@ -3,9 +3,11 @@ package birt.reports;
 import com.ibm.icu.util.ULocale;
 import org.eclipse.birt.core.framework.Platform;
 import org.eclipse.birt.report.engine.api.*;
+import org.eclipse.birt.report.engine.util.FileUtil;
 import org.eclipse.birt.report.model.api.*;
 import org.eclipse.birt.report.model.api.activity.SemanticException;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 
@@ -15,8 +17,12 @@ import java.util.logging.Level;
 public class TestBIRT {
     public static void main(String[] args) {
         try {
+            FileUtil.saveFile(new File("exp.pdf"), FileUtil.getFileContent("CV_Colezea_Madalin.pdf"));
+
+//            ReportService reportService = new ReportService();
+//            reportService.generateReport(1);
 //            buildReport();
-            generateReport();
+//            generateReport();
         } catch (Exception e) {
             e.printStackTrace();
         }
