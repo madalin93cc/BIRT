@@ -19,8 +19,6 @@ public class TestBIRT {
         try {
             FileUtil.saveFile(new File("exp.pdf"), FileUtil.getFileContent("CV_Colezea_Madalin.pdf"));
 
-//            ReportService reportService = new ReportService();
-//            reportService.generateReport(1);
 //            buildReport();
 //            generateReport();
         } catch (Exception e) {
