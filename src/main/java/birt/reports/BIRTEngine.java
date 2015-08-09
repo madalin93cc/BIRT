@@ -32,22 +32,22 @@ public enum BIRTEngine {
             IReportRunnable iReportRunnable = engine.openReportDesign(rptName + ".rptdesign");
             IRunAndRenderTask task = engine.createRunAndRenderTask(iReportRunnable);
             task.getAppContext().put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, TestBIRT.class.getClassLoader());
-            //Set parameter values and validate
+//            Set parameters
             task.setParameterValue("Top Percentage", (new Integer(3)));
             task.setParameterValue("Top Count", (new Integer(5)));
+//            Validate parameters
             task.validateParameters();
 
-            //Setup rendering to HTML
+//            Setup rendering to HTML
 //            HTMLRenderOption options = new HTMLRenderOption();
 //            options.setOutputFileName("Customers.html");
 //            options.setOutputFormat("html");
 
+//            Rendering tot PDF
             PDFRenderOption options = new PDFRenderOption();
             options.setOutputFileName(rptName + ".pdf");
             options.setOutputFormat("pdf");
             options.setEmbededFont(false);
-            //Setting this to true removes html and body tags
-//            options.setEmbeddable(false);
             task.setRenderOption(options);
 
             //run and render report
