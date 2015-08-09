@@ -4,19 +4,26 @@
 app.controller('reportCtrl', ['$scope','$http', '$sce', 'ReportService',
     function($scope, $http, $sce, ReportService) {
 
-    $scope.reports = [{id:1, name:"Raport 1"}, {id:2, name:"Factura"}];
-    $scope.selectedReportId = null;
+    $scope.reports = [];
+    $http({
+        method: 'GET',
+        url: '/getAllReportNames',
+        data: {}
+    }).success(function (result) {
+        $scope.reports = result;
+    });
+    $scope.selectedReport = null;
     
-    $scope.setSelected = function (selectedId) {
-        $scope.selectedReportId = selectedId;
+    $scope.setSelected = function (selected) {
+        $scope.selectedReport = selected;
     }
 
     $scope.downloadReport = function (){
-        var fileName = "CV_Colezea_Madalin.pdf";
+        var fileName = $scope.selectedReport.name;
         var a = document.createElement("a");
         document.body.appendChild(a);
         a.style = "display: none";
-        ReportService.downloadReport($scope.selectedReportId).then(function(response){
+        ReportService.downloadReport($scope.selectedReport.id).then(function(response){
             var file = new Blob([(response.data)], {type: 'application/pdf'});
             var fileURL = URL.createObjectURL(file);
             a.href = fileURL;

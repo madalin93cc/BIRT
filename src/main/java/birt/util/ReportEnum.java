@@ -5,8 +5,8 @@ package birt.util;
  */
 public enum ReportEnum {
 
-    FACTURA(1, "FACTURA", "Factura.rptdesign"),
-    REPORT(2, "REPORT", "CV_Colezea_Madalin.pdf");
+    CUSTOMERS(1, "CUSTOMERS", "Customers"),
+    TEMPLATE_ATLAS(2, "TEMPLATE_ATLAS", "Factura Atlas");
 
     private Integer id;
     private String code;
@@ -16,6 +16,18 @@ public enum ReportEnum {
         this.id = id;
         this.code = code;
         this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public static String getFilenameById(Integer id){

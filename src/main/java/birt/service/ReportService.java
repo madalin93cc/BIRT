@@ -1,5 +1,6 @@
 package birt.service;
 
+import birt.reports.BIRTEngine;
 import birt.util.ReportEnum;
 import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpHeaders;
@@ -20,11 +21,12 @@ import java.io.IOException;
 public class ReportService {
 
     public ResponseEntity<byte[]> generateReport(Integer reportId) throws FileNotFoundException{
-//        String filename = "CV_Colezea_Madalin.pdf";
         String filename = ReportEnum.getFilenameById(reportId);
         if (filename == null) throw new FileNotFoundException();
+        BIRTEngine.INSTANCE.generatePdf(filename);
         byte [] content = null;
         try {
+            filename = filename + ".pdf";
             FileInputStream fileInputStream = new FileInputStream(new File(filename));
             content = IOUtils.toByteArray(fileInputStream);
         } catch (FileNotFoundException e){

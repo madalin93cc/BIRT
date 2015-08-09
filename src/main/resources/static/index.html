@@ -30,14 +30,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="report in reports" ng-click="setSelected(report.id)" ng-class="{selected: report.id === selectedReportId}">
+                        <tr ng-repeat="report in reports" ng-click="setSelected(report)" ng-class="{selected: report.id === selectedReport.id}">
                             <td class="col-md-4">{{report.name}}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="col-md-8">
-                <button ng-show="selectedReportId" ng-click="downloadReport()" class="btn btn-primary"> Descarca raport</button>
+                <button ng-show="selectedReport" ng-click="downloadReport()" class="btn btn-primary"> Descarca raport</button>
             </div>
         </div>
 
