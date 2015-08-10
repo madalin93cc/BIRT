@@ -1,6 +1,5 @@
 package birt.util;
 
-import birt.reports.TestBIRT;
 import org.eclipse.birt.core.framework.Platform;
 import org.eclipse.birt.report.engine.api.*;
 
@@ -33,7 +32,7 @@ public enum BIRTEngine {
         try {
             IReportRunnable iReportRunnable = engine.openReportDesign(Constants.RPT_DIR + rptName + Constants.RPT_EXT);
             IRunAndRenderTask task = engine.createRunAndRenderTask(iReportRunnable);
-            task.getAppContext().put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, TestBIRT.class.getClassLoader());
+            task.getAppContext().put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, BIRTEngine.class.getClassLoader());
 //            Set parameters
             task.setParameterValue("Top Percentage", (new Integer(3)));
             task.setParameterValue("Top Count", (new Integer(5)));

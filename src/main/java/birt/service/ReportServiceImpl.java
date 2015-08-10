@@ -2,6 +2,7 @@ package birt.service;
 
 import birt.dto.ReportDTO;
 import birt.util.BIRTEngine;
+import birt.util.Constants;
 import birt.util.ReportEnum;
 import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpHeaders;
@@ -16,7 +17,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import birt.util.Constants;
 
 /**
  * Created by Colezea on 08/08/2015.
