@@ -57,11 +57,6 @@
 			<artifactId>org.eclipse.birt.runtime</artifactId>
 			<version>4.2.0</version>
 		</dependency>
-		<dependency>
-			<groupId>axis</groupId>
-			<artifactId>axis</artifactId>
-			<version>1.4</version>
-		</dependency>
 
 	</dependencies>
 	
