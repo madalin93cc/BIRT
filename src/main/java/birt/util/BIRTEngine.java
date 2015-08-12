@@ -34,8 +34,8 @@ public enum BIRTEngine {
             IRunAndRenderTask task = engine.createRunAndRenderTask(iReportRunnable);
             task.getAppContext().put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, BIRTEngine.class.getClassLoader());
 //            Set parameters
-            task.setParameterValue("Top Percentage", (new Integer(3)));
-            task.setParameterValue("Top Count", (new Integer(5)));
+            task.setParameterValue("Customer id", (new Integer(103)));
+            task.setParameterValue("Provider id", (new Integer(1002)));
 //            Validate parameters
             task.validateParameters();
 //            Rendering tot PDF
