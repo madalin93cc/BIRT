@@ -15,7 +15,10 @@ app.controller('reportCtrl', ['$scope','$http', '$sce', 'ReportService',
     $scope.selectedReport = null;
     
     $scope.setSelected = function (selected) {
-        $scope.selectedReport = selected;
+        if ($scope.selectedReport != selected) {
+            $scope.selectedReport = selected;
+            $scope.content = null;
+        }
     }
 
     $scope.downloadReport = function (){
@@ -29,7 +32,7 @@ app.controller('reportCtrl', ['$scope','$http', '$sce', 'ReportService',
             a.href = fileURL;
             a.download = fileName;
             a.click();
-            //$scope.content = $sce.trustAsResourceUrl(fileURL);
+            $scope.content = $sce.trustAsResourceUrl(fileURL);
             //window.open(fileURL);
         });
 
