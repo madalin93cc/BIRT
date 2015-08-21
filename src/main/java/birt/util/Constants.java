@@ -7,7 +7,11 @@ public enum Constants {
     PDF_DIR("Pdf/"),
     PDF_EXT(".pdf"),
     RPT_DIR("Rptdesign/"),
-    RPT_EXT(".rptdesign");
+    RPT_EXT(".rptdesign"),
+    DB_PRE("jdbc:h2:file:"),
+    DB_SUF("/H2/BIRT;AUTO_SERVER=TRUE"),
+    DB_USER("root"),
+    DB_PASSWORD("");
 
     private String value;
 
