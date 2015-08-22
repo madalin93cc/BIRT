@@ -8,8 +8,7 @@ public enum Constants {
     PDF_EXT(".pdf"),
     RPT_DIR("Rptdesign/"),
     RPT_EXT(".rptdesign"),
-    DB_PRE("jdbc:h2:file:"),
-    DB_SUF("/H2/BIRT;AUTO_SERVER=TRUE"),
+    DB_URL("jdbc:mysql://localhost:3306/birt"),
     DB_USER("root"),
     DB_PASSWORD("");
 

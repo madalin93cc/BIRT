@@ -1,7 +1,7 @@
 package birt.config;
 
 import birt.util.Constants;
-import org.h2.Driver;
+import com.mysql.jdbc.Driver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -46,18 +46,18 @@ public class DataSourceConfig {
 
     @Bean
     public SimpleDriverDataSource dataSource() throws SQLException {
-        String currentDir = System.getProperty("user.dir");
+//        String currentDir = System.getProperty("user.dir");
 //        String runInitScript = "RUNSCRIPT FROM " + "\'" + currentDir + "/H2/scripts/init.sql" + "\'";
-        String runInitPupulateScript = "RUNSCRIPT FROM " + "\'" + currentDir + "/H2/scripts/populate.sql" + "\'";
+//        String runInitPupulateScript = "RUNSCRIPT FROM " + "\'" + currentDir + "\\H2\\scripts\\populate.sql" + "\'";
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         Driver driver = new Driver();
         dataSource.setDriver(driver);
-        dataSource.setUrl(Constants.DB_PRE + currentDir + Constants.DB_SUF);
+        dataSource.setUrl(Constants.DB_URL.toString());
         dataSource.setUsername(Constants.DB_USER.toString());
         dataSource.setPassword(Constants.DB_PASSWORD.toString());
 
 //        dataSource.getConnection().prepareStatement(runInitScript).execute();
-        dataSource.getConnection().prepareStatement(runInitPupulateScript).execute();
+//        dataSource.getConnection().prepareStatement(runInitPupulateScript).execute();
 
         return dataSource;
     }
