@@ -4,6 +4,18 @@
     <list-property name="propertyBindings">
         <structure>
             <property name="name">queryText</property>
+            <property name="id">251</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">251</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">251</property>
+        </structure>
+        <structure>
+            <property name="name">queryText</property>
             <property name="id">246</property>
         </structure>
         <structure>
@@ -13,42 +25,6 @@
         <structure>
             <property name="name">rowFetchSize</property>
             <property name="id">246</property>
-        </structure>
-        <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">245</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">245</property>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">245</property>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">245</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">245</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">245</property>
-        </structure>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">245</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">245</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">245</property>
         </structure>
         <structure>
             <property name="name">queryText</property>
@@ -62,20 +38,68 @@
             <property name="name">rowFetchSize</property>
             <property name="id">253</property>
         </structure>
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">252</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">252</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">252</property>
+        </structure>
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">312</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">312</property>
+            <expression name="value" type="javascript">params["DB_URL"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">312</property>
+            <expression name="value" type="javascript">params["DB_Username"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">312</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">312</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">312</property>
+            <expression name="value" type="javascript">params["DB_Password"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">312</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">312</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">312</property>
+        </structure>
     </list-property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
     <parameters>
-        <scalar-parameter name="Customer id" id="310">
+        <scalar-parameter name="Invoice Id" id="314">
             <property name="valueType">static</property>
-            <property name="isRequired">false</property>
+            <property name="isRequired">true</property>
             <property name="dataType">integer</property>
             <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="javascript">0</value>
-            </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
@@ -84,14 +108,38 @@
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="Provider id" id="311">
+        <scalar-parameter name="DB_Username" id="315">
             <property name="valueType">static</property>
-            <property name="isRequired">false</property>
-            <property name="dataType">integer</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
-            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="DB_URL" id="316">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="DB_Password" id="318">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -99,12 +147,8 @@
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="DemoDataSource" id="245">
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="MySqlBirtDatasource" id="312">
             <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
                 <ex-property>
                     <name>metadataBidiFormatStr</name>
                     <value>ILYNN</value>
@@ -113,12 +157,16 @@
                     <name>disabledMetadataBidiFormatStr</name>
                 </ex-property>
                 <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
                     <name>disabledContentBidiFormatStr</name>
                 </ex-property>
             </list-property>
-            <property name="odaDriverClass">org.eclipse.birt.report.data.oda.sampledb.Driver</property>
-            <property name="odaURL">jdbc:classicmodels:sampledb</property>
-            <property name="odaUser">ClassicModels</property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/birt</property>
+            <property name="odaUser">root</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -126,95 +174,56 @@
             <property name="nullsOrdering">nulls lowest</property>
             <list-property name="columnHints">
                 <structure>
-                    <property name="columnName">CUSTOMERNUMBER</property>
+                    <property name="columnName">id</property>
                     <property name="analysis">measure</property>
-                    <text-property name="displayName">CUSTOMERNUMBER</text-property>
-                    <text-property name="heading">CUSTOMERNUMBER</text-property>
+                    <text-property name="displayName">id</text-property>
+                    <text-property name="heading">id</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">CUSTOMERNAME</property>
+                    <property name="columnName">ADDRESS</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">CUSTOMERNAME</text-property>
-                    <text-property name="heading">CUSTOMERNAME</text-property>
+                    <text-property name="displayName">ADDRESS</text-property>
+                    <text-property name="heading">ADDRESS</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">CONTACTLASTNAME</property>
+                    <property name="columnName">BANK</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">CONTACTLASTNAME</text-property>
-                    <text-property name="heading">CONTACTLASTNAME</text-property>
+                    <text-property name="displayName">BANK</text-property>
+                    <text-property name="heading">BANK</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">CONTACTFIRSTNAME</property>
+                    <property name="columnName">CIF</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">CONTACTFIRSTNAME</text-property>
-                    <text-property name="heading">CONTACTFIRSTNAME</text-property>
+                    <text-property name="displayName">CIF</text-property>
+                    <text-property name="heading">CIF</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">PHONE</property>
+                    <property name="columnName">FIRSTNAME</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">PHONE</text-property>
-                    <text-property name="heading">PHONE</text-property>
+                    <text-property name="displayName">FIRSTNAME</text-property>
+                    <text-property name="heading">FIRSTNAME</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">ADDRESSLINE1</property>
+                    <property name="columnName">IBAN</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">ADDRESSLINE1</text-property>
-                    <text-property name="heading">ADDRESSLINE1</text-property>
+                    <text-property name="displayName">IBAN</text-property>
+                    <text-property name="heading">IBAN</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">ADDRESSLINE2</property>
+                    <property name="columnName">LASTNAME</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">ADDRESSLINE2</text-property>
-                    <text-property name="heading">ADDRESSLINE2</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">CITY</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">CITY</text-property>
-                    <text-property name="heading">CITY</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">STATE</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">STATE</text-property>
-                    <text-property name="heading">STATE</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">POSTALCODE</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">POSTALCODE</text-property>
-                    <text-property name="heading">POSTALCODE</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">COUNTRY</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">COUNTRY</text-property>
-                    <text-property name="heading">COUNTRY</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">SALESREPEMPLOYEENUMBER</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">SALESREPEMPLOYEENUMBER</text-property>
-                    <text-property name="heading">SALESREPEMPLOYEENUMBER</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">CREDITLIMIT</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">CREDITLIMIT</text-property>
-                    <text-property name="heading">CREDITLIMIT</text-property>
+                    <text-property name="displayName">LASTNAME</text-property>
+                    <text-property name="heading">LASTNAME</text-property>
                 </structure>
             </list-property>
             <list-property name="parameters">
                 <structure>
-                    <property name="name">Customer_ID</property>
-                    <property name="paramName">Customer id</property>
+                    <property name="name">invoice_id</property>
+                    <property name="paramName">Invoice Id</property>
                     <property name="nativeName"></property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
+                    <property name="nativeDataType">-1</property>
                     <property name="position">1</property>
-                    <expression name="defaultValue" type="javascript">102</expression>
-                    <property name="isOptional">true</property>
-                    <property name="allowNull">true</property>
                     <property name="isInput">true</property>
                     <property name="isOutput">false</property>
                 </structure>
@@ -223,168 +232,97 @@
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">CUSTOMERNUMBER</property>
-                        <property name="dataType">integer</property>
+                        <property name="name">id</property>
+                        <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">CUSTOMERNAME</property>
+                        <property name="name">ADDRESS</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">CONTACTLASTNAME</property>
+                        <property name="name">BANK</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">4</property>
-                        <property name="name">CONTACTFIRSTNAME</property>
+                        <property name="name">CIF</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">5</property>
-                        <property name="name">PHONE</property>
+                        <property name="name">FIRSTNAME</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">6</property>
-                        <property name="name">ADDRESSLINE1</property>
+                        <property name="name">IBAN</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">7</property>
-                        <property name="name">ADDRESSLINE2</property>
+                        <property name="name">LASTNAME</property>
                         <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">CITY</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">9</property>
-                        <property name="name">STATE</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">10</property>
-                        <property name="name">POSTALCODE</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">11</property>
-                        <property name="name">COUNTRY</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">12</property>
-                        <property name="name">SALESREPEMPLOYEENUMBER</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">13</property>
-                        <property name="name">CREDITLIMIT</property>
-                        <property name="dataType">float</property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">DemoDataSource</property>
+            <property name="dataSource">MySqlBirtDatasource</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">CUSTOMERNUMBER</property>
-                    <property name="nativeName">CUSTOMERNUMBER</property>
-                    <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">CUSTOMERNAME</property>
-                    <property name="nativeName">CUSTOMERNAME</property>
+                    <property name="name">ADDRESS</property>
+                    <property name="nativeName">ADDRESS</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
-                    <property name="name">CONTACTLASTNAME</property>
-                    <property name="nativeName">CONTACTLASTNAME</property>
+                    <property name="name">BANK</property>
+                    <property name="nativeName">BANK</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
-                    <property name="name">CONTACTFIRSTNAME</property>
-                    <property name="nativeName">CONTACTFIRSTNAME</property>
+                    <property name="name">CIF</property>
+                    <property name="nativeName">CIF</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
-                    <property name="name">PHONE</property>
-                    <property name="nativeName">PHONE</property>
+                    <property name="name">FIRSTNAME</property>
+                    <property name="nativeName">FIRSTNAME</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
-                    <property name="name">ADDRESSLINE1</property>
-                    <property name="nativeName">ADDRESSLINE1</property>
+                    <property name="name">IBAN</property>
+                    <property name="nativeName">IBAN</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
-                    <property name="name">ADDRESSLINE2</property>
-                    <property name="nativeName">ADDRESSLINE2</property>
+                    <property name="name">LASTNAME</property>
+                    <property name="nativeName">LASTNAME</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">CITY</property>
-                    <property name="nativeName">CITY</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">STATE</property>
-                    <property name="nativeName">STATE</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">POSTALCODE</property>
-                    <property name="nativeName">POSTALCODE</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
-                    <property name="name">COUNTRY</property>
-                    <property name="nativeName">COUNTRY</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">12</property>
-                    <property name="name">SALESREPEMPLOYEENUMBER</property>
-                    <property name="nativeName">SALESREPEMPLOYEENUMBER</property>
-                    <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
-                </structure>
-                <structure>
-                    <property name="position">13</property>
-                    <property name="name">CREDITLIMIT</property>
-                    <property name="nativeName">CREDITLIMIT</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
-from customers
-where customernumber = ?]]></xml-property>
+from user
+where id = (select invoice.CUSTOMER_ID from invoice
+	where invoice.id = ?)]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -397,16 +335,11 @@ where customernumber = ?]]></xml-property>
             <design:name></design:name>
             <design:position>1</design:position>
           </design:identifier>
-          <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
-          <design:precision>10</design:precision>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
           <design:scale>0</design:scale>
-          <design:nullability>Nullable</design:nullability>
+          <design:nullability>Unknown</design:nullability>
         </design:attributes>
-        <design:inputAttributes>
-          <design:elementAttributes>
-            <design:optional>true</design:optional>
-          </design:elementAttributes>
-        </design:inputAttributes>
       </design:ParameterDefinition>
     </parameter>
   </DataSetParameters>
@@ -695,16 +628,28 @@ where customernumber = ?]]></xml-property>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Provider" id="251">
             <list-property name="columnHints">
                 <structure>
-                    <property name="columnName">EMPLOYEENUMBER</property>
+                    <property name="columnName">id</property>
                     <property name="analysis">measure</property>
-                    <text-property name="displayName">EMPLOYEENUMBER</text-property>
-                    <text-property name="heading">EMPLOYEENUMBER</text-property>
+                    <text-property name="displayName">id</text-property>
+                    <text-property name="heading">id</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">LASTNAME</property>
+                    <property name="columnName">ADDRESS</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">LASTNAME</text-property>
-                    <text-property name="heading">LASTNAME</text-property>
+                    <text-property name="displayName">ADDRESS</text-property>
+                    <text-property name="heading">ADDRESS</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BANK</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">BANK</text-property>
+                    <text-property name="heading">BANK</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CIF</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CIF</text-property>
+                    <text-property name="heading">CIF</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">FIRSTNAME</property>
@@ -713,47 +658,26 @@ where customernumber = ?]]></xml-property>
                     <text-property name="heading">FIRSTNAME</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">EXTENSION</property>
+                    <property name="columnName">IBAN</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">EXTENSION</text-property>
-                    <text-property name="heading">EXTENSION</text-property>
+                    <text-property name="displayName">IBAN</text-property>
+                    <text-property name="heading">IBAN</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">EMAIL</property>
+                    <property name="columnName">LASTNAME</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">EMAIL</text-property>
-                    <text-property name="heading">EMAIL</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">OFFICECODE</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">OFFICECODE</text-property>
-                    <text-property name="heading">OFFICECODE</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">REPORTSTO</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">REPORTSTO</text-property>
-                    <text-property name="heading">REPORTSTO</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">JOBTITLE</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">JOBTITLE</text-property>
-                    <text-property name="heading">JOBTITLE</text-property>
+                    <text-property name="displayName">LASTNAME</text-property>
+                    <text-property name="heading">LASTNAME</text-property>
                 </structure>
             </list-property>
             <list-property name="parameters">
                 <structure>
-                    <property name="name">Provider_ID</property>
-                    <property name="paramName">Provider id</property>
+                    <property name="name">invoice_id</property>
+                    <property name="paramName">Invoice Id</property>
                     <property name="nativeName"></property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
+                    <property name="nativeDataType">-1</property>
                     <property name="position">1</property>
-                    <expression name="defaultValue" type="javascript">0</expression>
-                    <property name="isOptional">true</property>
-                    <property name="allowNull">true</property>
                     <property name="isInput">true</property>
                     <property name="isOutput">false</property>
                 </structure>
@@ -762,108 +686,97 @@ where customernumber = ?]]></xml-property>
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">EMPLOYEENUMBER</property>
-                        <property name="dataType">integer</property>
+                        <property name="name">id</property>
+                        <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">LASTNAME</property>
+                        <property name="name">ADDRESS</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">FIRSTNAME</property>
+                        <property name="name">BANK</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">4</property>
-                        <property name="name">EXTENSION</property>
+                        <property name="name">CIF</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">5</property>
-                        <property name="name">EMAIL</property>
+                        <property name="name">FIRSTNAME</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">6</property>
-                        <property name="name">OFFICECODE</property>
+                        <property name="name">IBAN</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">7</property>
-                        <property name="name">REPORTSTO</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">JOBTITLE</property>
+                        <property name="name">LASTNAME</property>
                         <property name="dataType">string</property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">DemoDataSource</property>
+            <property name="dataSource">MySqlBirtDatasource</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">EMPLOYEENUMBER</property>
-                    <property name="nativeName">EMPLOYEENUMBER</property>
-                    <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">LASTNAME</property>
-                    <property name="nativeName">LASTNAME</property>
+                    <property name="name">ADDRESS</property>
+                    <property name="nativeName">ADDRESS</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
+                    <property name="name">BANK</property>
+                    <property name="nativeName">BANK</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">CIF</property>
+                    <property name="nativeName">CIF</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
                     <property name="name">FIRSTNAME</property>
                     <property name="nativeName">FIRSTNAME</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">4</property>
-                    <property name="name">EXTENSION</property>
-                    <property name="nativeName">EXTENSION</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">EMAIL</property>
-                    <property name="nativeName">EMAIL</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
                     <property name="position">6</property>
-                    <property name="name">OFFICECODE</property>
-                    <property name="nativeName">OFFICECODE</property>
+                    <property name="name">IBAN</property>
+                    <property name="nativeName">IBAN</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
-                    <property name="name">REPORTSTO</property>
-                    <property name="nativeName">REPORTSTO</property>
-                    <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">JOBTITLE</property>
-                    <property name="nativeName">JOBTITLE</property>
+                    <property name="name">LASTNAME</property>
+                    <property name="nativeName">LASTNAME</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
-from employees
-where employeenumber = ?]]></xml-property>
+from user
+where id = (select invoice.PROVIDER_ID from invoice
+	where invoice.id = ?)]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -876,16 +789,11 @@ where employeenumber = ?]]></xml-property>
             <design:name></design:name>
             <design:position>1</design:position>
           </design:identifier>
-          <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
-          <design:precision>10</design:precision>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
           <design:scale>0</design:scale>
-          <design:nullability>Nullable</design:nullability>
+          <design:nullability>Unknown</design:nullability>
         </design:attributes>
-        <design:inputAttributes>
-          <design:elementAttributes>
-            <design:optional>true</design:optional>
-          </design:elementAttributes>
-        </design:inputAttributes>
       </design:ParameterDefinition>
     </parameter>
   </DataSetParameters>
@@ -1069,243 +977,361 @@ where employeenumber = ?]]></xml-property>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Invoice" id="252">
             <list-property name="columnHints">
                 <structure>
-                    <property name="columnName">ORDERNUMBER</property>
+                    <property name="columnName">id</property>
                     <property name="analysis">measure</property>
-                    <text-property name="displayName">ORDERNUMBER</text-property>
-                    <text-property name="heading">ORDERNUMBER</text-property>
+                    <text-property name="displayName">id</text-property>
+                    <text-property name="heading">id</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">ORDERDATE</property>
+                    <property name="columnName">DATE</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">ORDERDATE</text-property>
-                    <text-property name="heading">ORDERDATE</text-property>
+                    <text-property name="displayName">DATE</text-property>
+                    <text-property name="heading">DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">NUMBER</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">NUMBER</text-property>
+                    <text-property name="heading">NUMBER</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CUSTOMER_ID</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CUSTOMER_ID</text-property>
+                    <text-property name="heading">CUSTOMER_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">PROVIDER_ID</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">PROVIDER_ID</text-property>
+                    <text-property name="heading">PROVIDER_ID</text-property>
                 </structure>
             </list-property>
-            <list-property name="parameters"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">invoice_id</property>
+                    <property name="paramName">Invoice Id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">ORDERNUMBER</property>
-                        <property name="dataType">integer</property>
+                        <property name="name">id</property>
+                        <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">ORDERDATE</property>
-                        <property name="dataType">date</property>
+                        <property name="name">DATE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">NUMBER</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">CUSTOMER_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">PROVIDER_ID</property>
+                        <property name="dataType">decimal</property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">DemoDataSource</property>
+            <property name="dataSource">MySqlBirtDatasource</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">ORDERNUMBER</property>
-                    <property name="nativeName">ORDERNUMBER</property>
-                    <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">ORDERDATE</property>
-                    <property name="nativeName">ORDERDATE</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="name">DATE</property>
+                    <property name="nativeName">DATE</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">NUMBER</property>
+                    <property name="nativeName">NUMBER</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">CUSTOMER_ID</property>
+                    <property name="nativeName">CUSTOMER_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">PROVIDER_ID</property>
+                    <property name="nativeName">PROVIDER_ID</property>
+                    <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[select CLASSICMODELS.ORDERS.ORDERNUMBER,CLASSICMODELS.ORDERS.ORDERDATE
-from CLASSICMODELS.ORDERS
-where ORDERNUMBER = 10100]]></xml-property>
+            <xml-property name="queryText"><![CDATA[select *
+from invoice
+where id = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Services" id="253">
             <property name="nullsOrdering">nulls lowest</property>
             <list-property name="columnHints">
                 <structure>
-                    <property name="columnName">PRODUCTCODE</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">PRODUCTCODE</text-property>
-                    <property name="onColumnLayout">false</property>
-                    <text-property name="heading">PRODUCTCODE</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">PRODUCTNAME</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">PRODUCTNAME</text-property>
-                    <property name="onColumnLayout">false</property>
-                    <text-property name="heading">PRODUCTNAME</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">PRODUCTLINE</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">PRODUCTLINE</text-property>
-                    <property name="onColumnLayout">false</property>
-                    <text-property name="heading">PRODUCTLINE</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">PRODUCTSCALE</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">PRODUCTSCALE</text-property>
-                    <property name="onColumnLayout">false</property>
-                    <text-property name="heading">PRODUCTSCALE</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">PRODUCTVENDOR</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">PRODUCTVENDOR</text-property>
-                    <property name="onColumnLayout">false</property>
-                    <text-property name="heading">PRODUCTVENDOR</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">PRODUCTDESCRIPTION</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">PRODUCTDESCRIPTION</text-property>
-                    <property name="onColumnLayout">false</property>
-                    <text-property name="heading">PRODUCTDESCRIPTION</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">QUANTITYINSTOCK</property>
+                    <property name="columnName">id</property>
                     <property name="analysis">measure</property>
-                    <text-property name="displayName">QUANTITYINSTOCK</text-property>
-                    <property name="onColumnLayout">false</property>
-                    <text-property name="heading">QUANTITYINSTOCK</text-property>
+                    <text-property name="displayName">id</text-property>
+                    <text-property name="heading">id</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">BUYPRICE</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">BUYPRICE</text-property>
-                    <property name="onColumnLayout">false</property>
-                    <text-property name="heading">BUYPRICE</text-property>
+                    <property name="columnName">NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">NAME</text-property>
+                    <text-property name="heading">NAME</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">MSRP</property>
+                    <property name="columnName">QUANTITY</property>
                     <property name="analysis">measure</property>
-                    <text-property name="displayName">MSRP</text-property>
-                    <property name="onColumnLayout">false</property>
-                    <text-property name="heading">MSRP</text-property>
+                    <text-property name="displayName">QUANTITY</text-property>
+                    <text-property name="heading">QUANTITY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TOTAL</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">TOTAL</text-property>
+                    <text-property name="heading">TOTAL</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">UNIT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">UNIT</text-property>
+                    <text-property name="heading">UNIT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">UNIT_PRICE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">UNIT_PRICE</text-property>
+                    <text-property name="heading">UNIT_PRICE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">VALUE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">VALUE</text-property>
+                    <text-property name="heading">VALUE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">VAT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">VAT</text-property>
+                    <text-property name="heading">VAT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">VAT_VALUE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">VAT_VALUE</text-property>
+                    <text-property name="heading">VAT_VALUE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">INVOICE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">INVOICE</text-property>
+                    <text-property name="heading">INVOICE</text-property>
                 </structure>
             </list-property>
-            <list-property name="parameters"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">invoice_id</property>
+                    <property name="paramName">Invoice Id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">PRODUCTCODE</property>
-                        <property name="dataType">string</property>
+                        <property name="name">id</property>
+                        <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">PRODUCTNAME</property>
+                        <property name="name">NAME</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">PRODUCTLINE</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">PRODUCTSCALE</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">PRODUCTVENDOR</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">PRODUCTDESCRIPTION</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">QUANTITYINSTOCK</property>
+                        <property name="name">QUANTITY</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
+                        <property name="position">4</property>
+                        <property name="name">TOTAL</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">UNIT</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">UNIT_PRICE</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
                         <property name="position">8</property>
-                        <property name="name">BUYPRICE</property>
+                        <property name="name">VAT</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
                         <property name="position">9</property>
-                        <property name="name">MSRP</property>
+                        <property name="name">VAT_VALUE</property>
                         <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">INVOICE</property>
+                        <property name="dataType">decimal</property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">DemoDataSource</property>
+            <property name="dataSource">MySqlBirtDatasource</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">PRODUCTCODE</property>
-                    <property name="nativeName">PRODUCTCODE</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">PRODUCTNAME</property>
-                    <property name="nativeName">PRODUCTNAME</property>
+                    <property name="name">NAME</property>
+                    <property name="nativeName">NAME</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
-                    <property name="name">PRODUCTLINE</property>
-                    <property name="nativeName">PRODUCTLINE</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">PRODUCTSCALE</property>
-                    <property name="nativeName">PRODUCTSCALE</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">PRODUCTVENDOR</property>
-                    <property name="nativeName">PRODUCTVENDOR</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">PRODUCTDESCRIPTION</property>
-                    <property name="nativeName">PRODUCTDESCRIPTION</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">QUANTITYINSTOCK</property>
-                    <property name="nativeName">QUANTITYINSTOCK</property>
+                    <property name="name">QUANTITY</property>
+                    <property name="nativeName">QUANTITY</property>
                     <property name="dataType">integer</property>
                     <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
+                    <property name="position">4</property>
+                    <property name="name">TOTAL</property>
+                    <property name="nativeName">TOTAL</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">UNIT</property>
+                    <property name="nativeName">UNIT</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">UNIT_PRICE</property>
+                    <property name="nativeName">UNIT_PRICE</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">VALUE</property>
+                    <property name="nativeName">VALUE</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
                     <property name="position">8</property>
-                    <property name="name">BUYPRICE</property>
-                    <property name="nativeName">BUYPRICE</property>
+                    <property name="name">VAT</property>
+                    <property name="nativeName">VAT</property>
                     <property name="dataType">float</property>
                     <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
-                    <property name="name">MSRP</property>
-                    <property name="nativeName">MSRP</property>
+                    <property name="name">VAT_VALUE</property>
+                    <property name="nativeName">VAT_VALUE</property>
                     <property name="dataType">float</property>
                     <property name="nativeDataType">8</property>
                 </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">INVOICE</property>
+                    <property name="nativeName">INVOICE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
-from CLASSICMODELS.PRODUCTS
-where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
+from service
+where service.invoice = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
@@ -1551,8 +1577,8 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                 <list-property name="boundDataColumns">
                                     <structure>
                                         <property name="name">Invoice No</property>
-                                        <expression name="expression" type="javascript">dataSetRow["ORDERNUMBER"]</expression>
-                                        <property name="dataType">string</property>
+                                        <expression name="expression" type="javascript">dataSetRow["NUMBER"]</expression>
+                                        <property name="dataType">integer</property>
                                         <property name="allowExport">true</property>
                                     </structure>
                                 </list-property>
@@ -1563,8 +1589,8 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                 <list-property name="boundDataColumns">
                                     <structure>
                                         <property name="name">Invoice Date</property>
-                                        <expression name="expression" type="javascript">dataSetRow["ORDERDATE"]</expression>
-                                        <property name="dataType">string</property>
+                                        <expression name="expression" type="javascript">dataSetRow["DATE"]</expression>
+                                        <property name="dataType">date</property>
                                         <property name="allowExport">true</property>
                                     </structure>
                                 </list-property>
@@ -1642,7 +1668,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">Customer Name</property>
-                                            <expression name="expression" type="javascript">dataSetRow["CONTACTFIRSTNAME"] + dataSetRow["CONTACTLASTNAME"]</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["FIRSTNAME"] + dataSetRow["LASTNAME"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -1676,7 +1702,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">Provider CIF</property>
-                                            <expression name="expression" type="javascript">dataSetRow["EXTENSION"]</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["CIF"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -1708,7 +1734,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">CustomerCIF</property>
-                                            <expression name="expression" type="javascript">dataSetRow["CREDITLIMIT"]</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["CIF"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -1742,7 +1768,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">Customer Address</property>
-                                            <expression name="expression" type="javascript">dataSetRow["OFFICECODE"]</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["ADDRESS"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -1774,7 +1800,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">Customer Address</property>
-                                            <expression name="expression" type="javascript">dataSetRow["ADDRESSLINE1"] + dataSetRow["ADDRESSLINE2"]</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["ADDRESS"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -1808,7 +1834,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">Provider IBAN</property>
-                                            <expression name="expression" type="javascript">dataSetRow["EMAIL"]</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["IBAN"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -1840,7 +1866,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">Customer IBAN</property>
-                                            <expression name="expression" type="javascript">dataSetRow["PHONE"]</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["IBAN"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -1874,7 +1900,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">Provider Bank</property>
-                                            <expression name="expression" type="javascript">dataSetRow["JOBTITLE"]</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["BANK"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -1906,7 +1932,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">Customer Bank</property>
-                                            <expression name="expression" type="javascript">dataSetRow["CITY"]</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["BANK"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -1933,92 +1959,38 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
             <property name="dataSet">Services</property>
             <list-property name="boundDataColumns">
                 <structure>
-                    <property name="name">PRODUCTCODE</property>
-                    <text-property name="displayName">PRODUCTCODE</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["PRODUCTCODE"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">PRODUCTNAME</property>
-                    <text-property name="displayName">PRODUCTNAME</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["PRODUCTNAME"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">PRODUCTLINE</property>
-                    <text-property name="displayName">PRODUCTLINE</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["PRODUCTLINE"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">PRODUCTSCALE</property>
-                    <text-property name="displayName">PRODUCTSCALE</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["PRODUCTSCALE"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">PRODUCTVENDOR</property>
-                    <text-property name="displayName">PRODUCTVENDOR</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["PRODUCTVENDOR"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">PRODUCTDESCRIPTION</property>
-                    <text-property name="displayName">PRODUCTDESCRIPTION</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["PRODUCTDESCRIPTION"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">QUANTITYINSTOCK</property>
-                    <text-property name="displayName">QUANTITYINSTOCK</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["QUANTITYINSTOCK"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="name">BUYPRICE</property>
-                    <text-property name="displayName">BUYPRICE</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["BUYPRICE"]</expression>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="name">MSRP</property>
-                    <text-property name="displayName">MSRP</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["MSRP"]</expression>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
                     <property name="name">Unit</property>
-                    <expression name="expression" type="javascript">dataSetRow["PRODUCTNAME"]</expression>
-                    <property name="dataType">string</property>
+                    <expression name="expression" type="javascript">dataSetRow["UNIT"]</expression>
+                    <property name="dataType">integer</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">Quantity</property>
-                    <expression name="expression" type="javascript">dataSetRow["QUANTITYINSTOCK"]</expression>
+                    <expression name="expression" type="javascript">dataSetRow["QUANTITY"]</expression>
                     <property name="dataType">integer</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">Unit Price</property>
-                    <expression name="expression" type="javascript">dataSetRow["BUYPRICE"]</expression>
+                    <expression name="expression" type="javascript">dataSetRow["UNIT_PRICE"]</expression>
                     <property name="dataType">float</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">VAT</property>
                     <expression name="expression" type="javascript">24</expression>
-                    <property name="dataType">integer</property>
+                    <property name="dataType">float</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">VAT Value</property>
-                    <expression name="expression" type="javascript">24/100 * dataSetRow["BUYPRICE"]</expression>
+                    <expression name="expression" type="javascript">24/100 * dataSetRow["UNIT_PRICE"]</expression>
                     <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">Value</property>
-                    <expression name="expression" type="javascript">dataSetRow["BUYPRICE"] * dataSetRow["QUANTITYINSTOCK"]</expression>
+                    <expression name="expression" type="javascript">dataSetRow["UNIT_PRICE"] * dataSetRow["QUANTITY"]</expression>
                     <property name="dataType">float</property>
                     <property name="allowExport">true</property>
                 </structure>
@@ -2078,7 +2050,7 @@ where CLASSICMODELS.PRODUCTS.PRODUCTSCALE like '1:72']]></xml-property>
                 </structure>
                 <structure>
                     <property name="name">Service</property>
-                    <expression name="expression" type="javascript">dataSetRow["PRODUCTDESCRIPTION"]</expression>
+                    <expression name="expression" type="javascript">dataSetRow["NAME"]</expression>
                     <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>

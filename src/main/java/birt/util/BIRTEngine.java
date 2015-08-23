@@ -34,8 +34,10 @@ public enum BIRTEngine {
             IRunAndRenderTask task = engine.createRunAndRenderTask(iReportRunnable);
             task.getAppContext().put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, BIRTEngine.class.getClassLoader());
 //            Set parameters
-            task.setParameterValue("Customer id", (new Integer(103)));
-            task.setParameterValue("Provider id", (new Integer(1002)));
+            task.setParameterValue("Invoice Id", (new Integer(1)));
+            task.setParameterValue("DB_URL", Constants.DB_URL.toString());
+            task.setParameterValue("DB_Username", Constants.DB_USER.toString());
+            task.setParameterValue("DB_Password", Constants.DB_PASSWORD.toString());
 //            Validate parameters
             task.validateParameters();
 //            Rendering tot PDF

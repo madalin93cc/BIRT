@@ -10,6 +10,7 @@ public enum Constants {
     RPT_EXT(".rptdesign"),
     DB_URL("jdbc:mysql://localhost:3306/birt"),
     DB_USER("root"),
+    DB_INIT_SCRIPT("/populate.sql"),
     DB_PASSWORD("");
 
     private String value;

@@ -2,6 +2,7 @@ package birt.config;
 
 import birt.util.Constants;
 import com.mysql.jdbc.Driver;
+import org.apache.ibatis.jdbc.ScriptRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,11 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -46,9 +52,7 @@ public class DataSourceConfig {
 
     @Bean
     public SimpleDriverDataSource dataSource() throws SQLException {
-//        String currentDir = System.getProperty("user.dir");
-//        String runInitScript = "RUNSCRIPT FROM " + "\'" + currentDir + "/H2/scripts/init.sql" + "\'";
-//        String runInitPupulateScript = "RUNSCRIPT FROM " + "\'" + currentDir + "\\H2\\scripts\\populate.sql" + "\'";
+        String currentDir = System.getProperty("user.dir");
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         Driver driver = new Driver();
         dataSource.setDriver(driver);
@@ -56,9 +60,22 @@ public class DataSourceConfig {
         dataSource.setUsername(Constants.DB_USER.toString());
         dataSource.setPassword(Constants.DB_PASSWORD.toString());
 
-//        dataSource.getConnection().prepareStatement(runInitScript).execute();
-//        dataSource.getConnection().prepareStatement(runInitPupulateScript).execute();
-
+        Connection connection = dataSource.getConnection();
+        ScriptRunner scriptRunner = new ScriptRunner(connection);
+        InputStreamReader reader = null;
+        try {
+            reader = new InputStreamReader(new FileInputStream(currentDir + Constants.DB_INIT_SCRIPT));
+            scriptRunner.runScript(reader);
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        connection.close();
         return dataSource;
     }
 
