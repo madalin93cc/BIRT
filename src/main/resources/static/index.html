@@ -37,9 +37,9 @@
                 </table>
             </div>
             <div class="col-md-8">
-                <select ng-options="inv.name for inv in invoices" ng-model="selectedInvoice" ng-change="setInvoice(selectedInvoice)" class="form-control" ng-if="selectedReport.name=='Factura Atlas'" style="width: 130px">
+                <select ng-options="inv.name for inv in invoices" ng-model="selectedInvoice" ng-change="setInvoice(selectedInvoice)" class="form-control" ng-if="selectedReport.name=='Factura Atlas'" style="width: 150px">
                 </select>
-                <button ng-show="selectedReport" ng-click="downloadReport()" class="btn btn-primary"> Descarca raport</button>
+                <button ng-show="selectedReport" ng-click="downloadReport()" class="btn btn-primary">Vizualizeaza raport</button>
             </div>
         </div>
 
