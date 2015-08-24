@@ -1,10 +1,13 @@
 package birt.service;
 
+import birt.dto.InvoiceDTO;
 import birt.dto.ReportDTO;
+import birt.repository.InvoiceRepository;
 import birt.util.BIRTEngine;
 import birt.util.Constants;
 import birt.util.ReportEnum;
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,6 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -24,10 +28,13 @@ import java.util.List;
 @Service
 public class ReportServiceImpl implements ReportService{
 
-    public ResponseEntity<byte[]> generateReport(Integer reportId) throws FileNotFoundException{
+    @Autowired
+    InvoiceRepository invoiceRepository;
+
+    public ResponseEntity<byte[]> generateReport(Integer reportId, Integer invoiceId) throws FileNotFoundException{
         String filename = ReportEnum.getFilenameById(reportId);
         if (filename == null) throw new FileNotFoundException();
-        BIRTEngine.INSTANCE.generatePdf(filename);
+        BIRTEngine.INSTANCE.generatePdf(filename, invoiceId);
         byte [] content = null;
         try {
             filename = Constants.PDF_DIR + filename + Constants.PDF_EXT;
@@ -56,5 +63,15 @@ public class ReportServiceImpl implements ReportService{
             reportDTOs.add(reportDTO);
         }
         return reportDTOs;
+    }
+
+    @Override
+    public List<InvoiceDTO> getAllInvoices() {
+        List<InvoiceDTO> invoiceDTOs = new ArrayList<>();
+        List<Long> allIds= invoiceRepository.getAllIds();
+        for (Long l: allIds){
+            invoiceDTOs.add(new InvoiceDTO(l));
+        }
+        return invoiceDTOs;
     }
 }

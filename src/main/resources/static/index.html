@@ -37,11 +37,13 @@
                 </table>
             </div>
             <div class="col-md-8">
+                <select ng-options="inv.name for inv in invoices" ng-model="selectedInvoice" ng-change="setInvoice(selectedInvoice)" class="form-control" ng-if="selectedReport.name=='Factura Atlas'" style="width: 130px">
+                </select>
                 <button ng-show="selectedReport" ng-click="downloadReport()" class="btn btn-primary"> Descarca raport</button>
             </div>
         </div>
 
-        <object ng-show="content" data="{{content}}" type="application/pdf" style="width: 100%; height: 400px;"></object>
+        <!--<object ng-show="content" data="{{content}}" type="application/pdf" style="width: 100%; height: 400px;"></object>-->
     </div>
 
     <!-- scripts -->

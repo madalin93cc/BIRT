@@ -1,16 +1,20 @@
 package birt.service;
 
+import birt.dto.InvoiceDTO;
 import birt.dto.ReportDTO;
 import org.springframework.http.ResponseEntity;
 
 import java.io.FileNotFoundException;
+import java.util.Collection;
 import java.util.List;
 
 /**
  * Created by Madalin.Colezea on 8/10/2015.
  */
 public interface ReportService {
-    ResponseEntity<byte[]> generateReport(Integer reportId) throws FileNotFoundException;
+    ResponseEntity<byte[]> generateReport(Integer reportId, Integer invoiceId) throws FileNotFoundException;
 
     List<ReportDTO> getAllReportNames();
+
+    List<InvoiceDTO> getAllInvoices();
 }

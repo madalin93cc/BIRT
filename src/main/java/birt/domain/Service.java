@@ -27,14 +27,14 @@ public class Service {
     @Column(name = "VAT", nullable = false, precision = 2)
     private Double vat;
 
-    @Column(name = "VALUE", nullable = false, precision = 2)
-    private Double value;
-
-    @Column(name = "VAT_VALUE", nullable = false, precision = 2)
-    private Double vatValue;
-
-    @Column(name = "TOTAL", nullable = false, precision = 2)
-    private Double total;
+//    @Column(name = "VALUE", nullable = false, precision = 2)
+//    private Double value;
+//
+//    @Column(name = "VAT_VALUE", nullable = false, precision = 2)
+//    private Double vatValue;
+//
+//    @Column(name = "TOTAL", nullable = false, precision = 2)
+//    private Double total;
 
     @ManyToOne
     @JoinColumn(name = "INVOICE")
@@ -49,9 +49,9 @@ public class Service {
         this.quantity = quantity;
         this.unitPrice = unitPrice;
         this.vat = vat;
-        this.value = value;
-        this.vatValue = vatValue;
-        this.total = total;
+//        this.value = value;
+//        this.vatValue = vatValue;
+//        this.total = total;
         this.fkInvoice = invoice;
     }
 
@@ -103,29 +103,29 @@ public class Service {
         this.vat = vat;
     }
 
-    public Double getValue() {
-        return value;
-    }
-
-    public void setValue(Double value) {
-        this.value = value;
-    }
-
-    public Double getVatValue() {
-        return vatValue;
-    }
-
-    public void setVatValue(Double vatValue) {
-        this.vatValue = vatValue;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
-    }
+//    public Double getValue() {
+//        return value;
+//    }
+//
+//    public void setValue(Double value) {
+//        this.value = value;
+//    }
+//
+//    public Double getVatValue() {
+//        return vatValue;
+//    }
+//
+//    public void setVatValue(Double vatValue) {
+//        this.vatValue = vatValue;
+//    }
+//
+//    public Double getTotal() {
+//        return total;
+//    }
+//
+//    public void setTotal(Double total) {
+//        this.total = total;
+//    }
 
     public Invoice getInvoice() {
         return fkInvoice;
@@ -138,7 +138,7 @@ public class Service {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Service)) return false;
 
         Service service = (Service) o;
 
@@ -147,10 +147,7 @@ public class Service {
         if (!unit.equals(service.unit)) return false;
         if (!quantity.equals(service.quantity)) return false;
         if (!unitPrice.equals(service.unitPrice)) return false;
-        if (!vat.equals(service.vat)) return false;
-        if (!value.equals(service.value)) return false;
-        if (!vatValue.equals(service.vatValue)) return false;
-        return total.equals(service.total);
+        return vat.equals(service.vat);
 
     }
 
@@ -162,9 +159,6 @@ public class Service {
         result = 31 * result + quantity.hashCode();
         result = 31 * result + unitPrice.hashCode();
         result = 31 * result + vat.hashCode();
-        result = 31 * result + value.hashCode();
-        result = 31 * result + vatValue.hashCode();
-        result = 31 * result + total.hashCode();
         return result;
     }
 }

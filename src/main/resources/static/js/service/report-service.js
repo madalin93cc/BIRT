@@ -3,8 +3,8 @@
  */
 app.service('ReportService', function ($http) {
     return {
-        downloadReport: function (reportId) {
-                return $http.get('/downloadReport/' + reportId,
+        downloadReport: function (reportId, invoiceId) {
+                return $http.get('/downloadReport/' + reportId + "/" + invoiceId,
                             {responseType:'arraybuffer'})
                         .success(function (response) {
                             return response;
