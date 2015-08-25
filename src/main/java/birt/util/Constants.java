@@ -1,7 +1,7 @@
 package birt.util;
 
 /**
- * Created by Madalin.Colezea on 8/10/2015.
+ * Constante
  */
 public enum Constants {
     PDF_DIR("Pdf/"),

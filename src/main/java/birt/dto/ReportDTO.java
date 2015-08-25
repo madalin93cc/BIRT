@@ -1,7 +1,7 @@
 package birt.dto;
 
 /**
- * Created by Colezea on 09/08/2015.
+ * Report DTO
  */
 public class ReportDTO {
     private Integer id;

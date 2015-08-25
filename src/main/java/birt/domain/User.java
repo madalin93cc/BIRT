@@ -3,7 +3,7 @@ package birt.domain;
 import javax.persistence.*;
 
 /**
- * Created by Colezea on 19/08/2015.
+ * User JPA Entity
  */
 @Entity
 public class User {

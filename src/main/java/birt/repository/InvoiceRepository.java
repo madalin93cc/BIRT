@@ -7,9 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 /**
- * Created by Madalin.Colezea on 8/24/2015.
+ * Repository pentru Invoice
  */
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
+    /**
+     * Metoda ce aduce toate id-urile de invoice
+     * @return lista id-uri
+     */
     @Query("select inv.id from Invoice inv")
     List<Long> getAllIds();
 }

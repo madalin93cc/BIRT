@@ -3,7 +3,7 @@ package birt.domain;
 import javax.persistence.*;
 
 /**
- * Created by Colezea on 19/08/2015.
+ * Service JPA Entity
  */
 @Entity
 public class Service {
@@ -26,6 +26,8 @@ public class Service {
 
     @Column(name = "VAT", nullable = false, precision = 2)
     private Double vat;
+
+// generate automat in raport, nu sunt necesare in baza
 
 //    @Column(name = "VALUE", nullable = false, precision = 2)
 //    private Double value;

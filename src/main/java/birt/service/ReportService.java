@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by Madalin.Colezea on 8/10/2015.
+ * Report service
  */
 public interface ReportService {
     ResponseEntity<byte[]> generateReport(Integer reportId, Integer invoiceId) throws FileNotFoundException;

@@ -1,7 +1,7 @@
 package birt.util;
 
 /**
- * Created by Colezea on 09/08/2015.
+ * Enum cu rapoartele disponibile
  */
 public enum ReportEnum {
 

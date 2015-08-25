@@ -6,7 +6,7 @@ import org.eclipse.birt.report.engine.api.*;
 import java.util.logging.Level;
 
 /**
- * Created by Colezea on 09/08/2015.
+ * BIRT engine singleton
  */
 public enum BIRTEngine {
     INSTANCE;
@@ -28,6 +28,12 @@ public enum BIRTEngine {
         }
     }
 
+    /**
+     * Metoda ce genereaza un raport dupa nume si id-ul invoice
+     *
+     * @param rptName nume raport
+     * @param invoiceId id invoice
+     */
     public void generatePdf(String rptName, Integer invoiceId){
         try {
             IReportRunnable iReportRunnable = engine.openReportDesign(Constants.RPT_DIR + rptName + Constants.RPT_EXT);
@@ -35,6 +41,7 @@ public enum BIRTEngine {
             task.getAppContext().put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, BIRTEngine.class.getClassLoader());
 //            Set parameters
             task.setParameterValue("Invoice Id", invoiceId);
+//            parametrii pentru realizarea conexiunii la baza de date
             task.setParameterValue("DB_URL", Constants.DB_URL.toString());
             task.setParameterValue("DB_Username", Constants.DB_USER.toString());
             task.setParameterValue("DB_Password", Constants.DB_PASSWORD.toString());

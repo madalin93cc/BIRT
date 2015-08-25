@@ -23,7 +23,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by Colezea on 08/08/2015.
+ * Implementare ReportService
  */
 @Service
 public class ReportServiceImpl implements ReportService{

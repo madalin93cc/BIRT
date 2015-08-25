@@ -60,6 +60,7 @@ public class DataSourceConfig {
         dataSource.setUsername(Constants.DB_USER.toString());
         dataSource.setPassword(Constants.DB_PASSWORD.toString());
 
+        // run script to populate database
         Connection connection = dataSource.getConnection();
         ScriptRunner scriptRunner = new ScriptRunner(connection);
         InputStreamReader reader = null;
@@ -76,6 +77,7 @@ public class DataSourceConfig {
             }
         }
         connection.close();
+
         return dataSource;
     }
 

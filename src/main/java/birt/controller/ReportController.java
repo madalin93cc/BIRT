@@ -16,7 +16,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by Colezea on 08/08/2015.
+ * Web controller
  */
 @Controller
 public class ReportController {

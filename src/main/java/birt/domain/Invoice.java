@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Colezea on 19/08/2015.
+ * Invoice JPA Entity
  */
 @Entity
 public class Invoice {

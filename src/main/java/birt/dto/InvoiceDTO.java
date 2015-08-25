@@ -1,7 +1,7 @@
 package birt.dto;
 
 /**
- * Created by Madalin.Colezea on 8/24/2015.
+ * Invoice DTO
  */
 public class InvoiceDTO {
     private Long id;
