@@ -39,7 +39,7 @@ app.controller('reportCtrl', ['$scope','$http', '$sce', '$window', 'ReportServic
         }
     }
 
-    $scope.downloadReport = function (){
+    $scope.previewReport = function (){
         var fileName = $scope.selectedReport.name;
         ReportService.downloadReport($scope.selectedReport.id, $scope.invoiceId).then(function(response){
             var file = new Blob([(response.data)], {type: 'application/pdf'});
@@ -47,6 +47,19 @@ app.controller('reportCtrl', ['$scope','$http', '$sce', '$window', 'ReportServic
             //$scope.content = $sce.trustAsResourceUrl(fileURL);
             $window.open(fileURL);
         });
+    }
 
+    $scope.downloadReport = function (){
+        var fileName = $scope.selectedReport.name;
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        ReportService.downloadReport($scope.selectedReport.id, $scope.invoiceId).then(function(response){
+            var file = new Blob([(response.data)], {type: 'application/pdf'});
+            var fileURL = URL.createObjectURL(file);
+            a.href = fileURL;
+            a.download = fileName;
+            a.click();
+        });
     }
 }]);

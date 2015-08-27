@@ -39,7 +39,8 @@
             <div class="col-md-8">
                 <select ng-options="inv.name for inv in invoices" ng-model="selectedInvoice" ng-change="setInvoice(selectedInvoice)" class="form-control" ng-if="selectedReport.name=='Factura Atlas'" style="width: 150px">
                 </select>
-                <button ng-show="selectedReport" ng-click="downloadReport()" class="btn btn-primary">Vizualizeaza raport</button>
+                <button ng-show="selectedReport" ng-click="previewReport()" class="btn btn-primary">Vizualizeaza raport</button>
+                <button ng-show="selectedReport" ng-click="downloadReport()" class="btn btn-primary">Descarca raport</button>
             </div>
         </div>
 
