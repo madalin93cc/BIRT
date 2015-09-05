@@ -41,6 +41,11 @@ public class Invoice {
         this.fkCustomer = fkCustomer;
     }
 
+    public Invoice(Date date, Integer number) {
+        this.date = date;
+        this.number = number;
+    }
+
     public Long getId() {
         return id;
     }
@@ -79,6 +84,14 @@ public class Invoice {
 
     public void setFkCustomer(User fkCustomer) {
         this.fkCustomer = fkCustomer;
+    }
+
+    public List<Service> getFkServices() {
+        return fkServices;
+    }
+
+    public void setFkServices(List<Service> fkServices) {
+        this.fkServices = fkServices;
     }
 
     @Override

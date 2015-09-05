@@ -57,6 +57,14 @@ public class Service {
         this.fkInvoice = invoice;
     }
 
+    public Service(String name, Integer unit, Integer quantity, Double unitPrice, Double vat) {
+        this.name = name;
+        this.unit = unit;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.vat = vat;
+    }
+
     public Long getId() {
         return id;
     }

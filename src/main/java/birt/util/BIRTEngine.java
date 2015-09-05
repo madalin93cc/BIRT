@@ -39,14 +39,17 @@ public enum BIRTEngine {
             IReportRunnable iReportRunnable = engine.openReportDesign(Constants.RPT_DIR + rptName + Constants.RPT_EXT);
             IRunAndRenderTask task = engine.createRunAndRenderTask(iReportRunnable);
             task.getAppContext().put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, BIRTEngine.class.getClassLoader());
-//            Set parameters
-            task.setParameterValue("Invoice Id", invoiceId);
-//            parametrii pentru realizarea conexiunii la baza de date
-            task.setParameterValue("DB_URL", Constants.DB_URL.toString());
-            task.setParameterValue("DB_Username", Constants.DB_USER.toString());
-            task.setParameterValue("DB_Password", Constants.DB_PASSWORD.toString());
-//            Validate parameters
-            task.validateParameters();
+
+            if (ReportEnum.requireDBByName(rptName)) {
+//              Set parameters
+                task.setParameterValue("Invoice Id", invoiceId);
+//              parametrii pentru realizarea conexiunii la baza de date
+                task.setParameterValue("DB_URL", Constants.DB_URL.toString());
+                task.setParameterValue("DB_Username", Constants.DB_USER.toString());
+                task.setParameterValue("DB_Password", Constants.DB_PASSWORD.toString());
+//              Validate parameters
+                task.validateParameters();
+            }
 //            Rendering tot PDF
             PDFRenderOption options = new PDFRenderOption();
             options.setOutputFileName(Constants.PDF_DIR + rptName + Constants.PDF_EXT);
